@@ -1,0 +1,6 @@
+##Challenges Encountered
+
+1. The SSH connection failed because of an incorrect private key permissions on windows.
+2. Had to use Chmod 600 to sort this out.
+3. And then hadd issue with the vm name - I choose azureuser
+4. Then was able to connect.
