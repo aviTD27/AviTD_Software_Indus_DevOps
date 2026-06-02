@@ -6,6 +6,9 @@ from datetime import datetime
 from flask import render_template
 from FlaskWebProject1 import app
 
+import mysql.connector
+import os
+
 @app.route('/')
 @app.route('/home')
 def home():
@@ -35,3 +38,18 @@ def about():
         year=datetime.now().year,
         message='Your application description page.'
     )
+
+@app.route('/time')
+def time():
+    conn = mysql.connector.connect(
+        host=os.getenv("MYSQL_HOST"),
+        user=os.getenv("MYSQL_USER"),
+        password=os.getenv("MYSQL_PASSWORD"),
+        database=os.getenv("MYSQL_DATABASE")
+    )
+    cur = conn.cursor()
+    cur.execute("SELECT CURRENT_TIMESTAMP();")
+    row = cur.fetchone()
+    cur.close()
+    conn.close()
+    return f"MySQL time: {row[0]}"
