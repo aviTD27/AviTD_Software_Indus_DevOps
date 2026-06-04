@@ -9,15 +9,14 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - mysql_data:/var/lib/mysql
+      - newMySqlVolume:/var/lib/mysql
 
   web:
-    image: avitd27/myapp
+    image: avitd27/myapp:v2
     container_name: flask_app_v1
     ports:
       - "8080:80"
 
 volumes:
-  mysql_data:
+  newMySqlVolume:
   web_content:
-    driver: local
