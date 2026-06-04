@@ -52,4 +52,4 @@ def time():
     row = cur.fetchone()
     cur.close()
     conn.close()
-    return f"MySQL time is: {row[0]}"
+    return f"MySQL Time Is :-> {row[0]}"

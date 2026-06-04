@@ -1,22 +1,24 @@
-version: "3.9"
-
 services:
   mysql:
     image: mysql:8
     container_name: mysql_v1
     environment:
       MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: test
     ports:
       - "3306:3306"
     volumes:
       - newMySqlVolume:/var/lib/mysql
 
   web:
-    image: avitd27/myapp:v2
-    container_name: flask_app_v1
+    build: .
+    container_name: flask_app_v3
+    env_file:
+      - .env
     ports:
-      - "8080:80"
+      - "8080:5000"
+    depends_on:
+      - mysql
 
 volumes:
   newMySqlVolume:
-  web_content:
