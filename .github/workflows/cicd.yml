@@ -55,5 +55,6 @@ jobs:
           script: |
             cd ~/app
             echo "TAG=${{ github.sha }}" > .env
+            sed -i "s|image: avitd27/my-app:.*|image: avitd27/my-app:${{ github.sha }}|g" docker-compose.yml
             docker compose pull
             docker compose up -d
