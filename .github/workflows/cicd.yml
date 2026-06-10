@@ -53,8 +53,8 @@ jobs:
           username: ${{ secrets.VM_USER }}
           key: ${{ secrets.VM_SSH_KEY }}
           script: |
-            cd ~/app
+            cd ~/AviTD_Software_Indus_DevOps
             echo "TAG=${{ github.sha }}" > .env
-            sed -i "s|image: avitd27/my-app:.*|image: avitd27/my-app:${{ github.sha }}|g" docker-compose.yml
+            sed -i "s|image: avitd27/my-app:.*|image: avitd27/my-app:${TAG}|g" docker-compose.yml
             docker compose pull
             docker compose up -d
