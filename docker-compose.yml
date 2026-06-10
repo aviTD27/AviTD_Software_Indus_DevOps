@@ -11,7 +11,7 @@ services:
       - newMySqlVolume:/var/lib/mysql
 
   web:
-    build: .
+    image: avitd27/my-app:${TAG}
     container_name: flask_app_v3
     env_file:
       - .env
