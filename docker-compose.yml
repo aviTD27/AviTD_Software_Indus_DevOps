@@ -10,15 +10,27 @@ services:
     volumes:
       - newMySqlVolume:/var/lib/mysql
 
-  web:
-    image: avitd27/my-app:${TAG}
-    container_name: flask_app_v3
+  flask-app-1:
+    image: avitd27/my-app:${APP1_IMAGE_TAG}
+    container_name: flask_app_1
     env_file:
       - .env
     ports:
-      - "8080:5000"
+      - "8001:8000"
     depends_on:
       - mysql
+    restart: always
+
+  flask-app-2:
+    image: avitd27/my-app:${APP2_IMAGE_TAG}
+    container_name: flask_app_2
+    env_file:
+      - .env
+    ports:
+      - "8002:8000"
+    depends_on:
+      - mysql
+    restart: always
 
 volumes:
   newMySqlVolume:
