@@ -35,9 +35,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          # docker build -t ${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }} .
-          docker build ./AviTD_Software_Indus_DevOps -t ${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }}
-
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/my-app:${{ github.sha }}
 
       - name: Push Docker image
         run: |
