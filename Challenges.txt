@@ -6,3 +6,13 @@
 4. Then was able to connect.
 5. Missing Python dependencies when running the Flask application
 6. Application initially only accessible locally - or using ip address.
+
+
+
+### Class Lab - 10 June 2026 
+#Step 3 – Adding GitHub Secrets
+DOCKER_USERNAME: My Docker Hub acc name
+DOCKER_TOKEN: Token generated from Docker Hub
+VM_HOST: Public IP address from my Azure VM
+VM_USER: SSH username used to connect to the VM
+VM_SSH_KEY: Pem file key
