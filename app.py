@@ -1,8 +1,15 @@
 from FlaskWebProject1 import app
 
+app = Flask(__name__)
+
+INSTANCE_NAME = os.environ.get("INSTANCE_NAME", "unknown")
+
 @app.route("/version")
 def version():
-    return {"version": "2.0"}
+    return jsonify({
+        "instance": INSTANCE_NAME,
+        "version": "2.0"
+    })
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000)

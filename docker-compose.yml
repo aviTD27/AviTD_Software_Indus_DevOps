@@ -15,6 +15,8 @@ services:
     container_name: flask_app_1
     ports:
       - "8001:8000"
+    environment:
+      - INSTANCE_NAME=flask-app-1
     depends_on:
       - mysql
     restart: always
@@ -24,6 +26,8 @@ services:
     container_name: flask_app_2
     ports:
       - "8002:8000"
+    environment:
+      - INSTANCE_NAME=flask-app-2
     depends_on:
       - mysql
     restart: always
